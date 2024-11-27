@@ -12,7 +12,6 @@
                 max-width:400px;
                 min-height:100px;
                 margin-bottom:5px;
-                background-color:yellow;
             } 
             
             div.creature img{
@@ -52,38 +51,38 @@
             <li>insect: dashed orange</li>
         </ul>
     </div>
-    <div class="creature">    
+    <div class = "creature" data-type = "animal" data-home = "land">    
         <img src="images/monkey.png" alt="monkey">
         <h3>Monkey</h3>
         <p>Monkeys are cute, but don't try to cuddle them.</p>
     </div>
         
-   <div class="creature">    
+   <div class = "creature" data-type = "animal" data-home = "air">    
         <img src="images/hummingbird.png" alt="hummingbird">
         <h3>Hummingbird</h3>
         <p>Hummingbirds are cute, but don't get in the way of their food.</p>
     </div>
         
-    <div class="creature">    
+    <div class="creature" data-type = "insect" data-home = "land">    
         <img src="images/spider.png" alt="spider">
         <h3>Spiders</h3>
     <p>Spiders are not cute, in fact they creep me out.</p>
     </div>
         
-   <div class="creature">    
+   <div class="creature" data-type = "animal" data-home= "air">    
         <img src="images/crow.png" alt="crow">
         <h3>Crow</h3>
         <p>Crows are not cute, and don't feed them your french fries.</p>
     </div> 
         
         
-    <div class="creature">    
+    <div class="creature" data-type = "animal" data-home = "water">    
         <img src="images/fish.png" alt="fish">
         <h3>Fish</h3>
         <p>Fish are not cute, but they taste good!</p>
     </div>
         
-    <div class="creature">    
+    <div class="creature" data-type = "insect" data-home = "land">    
         <img src="images/stinkbug.png" alt="stinkbug">
         <h3>Stink Bug</h3>
         <p>Stinkbugs are not cool!  Don't touch them!</p>
@@ -100,17 +99,20 @@
         // Create a function called showHome
         function showHome()
         {
-            // Create a function called changeBackgroundColor
             function changeBackgroundColor(home, color) {
-            // Select all elements with the class 'creature'
+            //Select all elements with the class 'creature'
             const creatures = document.querySelectorAll(".creature");
-            // Loop through the NodeList and change background color based on the type
+            //Loop through the NodeList and change background color based on the type
             creatures.forEach((creature) => {
                 if (creature.getAttribute("data-home") === home) {
                     creature.style.backgroundColor = color;
                 }
             });
-               alert("showHome()");   
+        }
+
+        // Call changeBackgroundColor function with appropriate arguments
+        changeBackgroundColor('land', 'green'); changeBackgroundColor('water', 'blue'); changeBackgroundColor('air', 'yellow');
+            
         }//end showHome()
         
         // Create a function called showType    
@@ -122,15 +124,15 @@
             const creatures = document.querySelectorAll(".creature");
             // Loop through the NodeList and change border color based on the home
             creatures.forEach((creature) => {
-                if (creature.getAttribute("data-type") === type) {
+                if (creature.getAttribute("data-type") == type) {
                     creature.style.borderColor = color;
                 }
             });
         }
     
         // Call the changeBorderColor function with desired arguments
-        changeBorderColor('animal', 'LightPink'); changeBorderColor('insect', 'MediumTurquoise');
-            alert("showType()");
+        changeBorderColor('animal', 'red'); changeBorderColor('insect', 'orange');
+
         }// end showType()
         
         // Create a function called clearAll
@@ -145,7 +147,7 @@
                 creatures[i].style.border = '1px solid black';
                 // Clear background color to white
                 creatures[i].style.backgroundColor = 'white';
-                    alert("clearAll()");
+                    
             }// end clearAll()
         }   
 
