@@ -19,6 +19,14 @@
                 float:right;
     
             }
+            .buttons{
+                margin-top: 20px;
+            }
+            .buttons{
+                margin: 5px;
+                padding: 10px;
+                cursor: pointer;
+            }
 
         </style>
     </head>   
@@ -88,43 +96,57 @@
      
     <script>
 
-        
+        // Create a function called showHome
         function showHome()
         {
-            /*
-                loop through all creatures
-                
-                if creature lives on land, background color green
-                if creature lives in water, blue
-                if creature lives in air, yellow
-                
-                */
-               alert("showHome()");
-            
+            // Create a function called changeBackgroundColor
+            function changeBackgroundColor(home, color) {
+            // Select all elements with the class 'creature'
+            const creatures = document.querySelectorAll(".creature");
+            // Loop through the NodeList and change background color based on the type
+            creatures.forEach((creature) => {
+                if (creature.getAttribute("data-home") === home) {
+                    creature.style.backgroundColor = color;
+                }
+            });
+               alert("showHome()");   
         }//end showHome()
         
+        // Create a function called showType
         function showType()
         {
-            /*
-                loop through all creatures
-                
-                if creature is an animal, border color solid red
-                if creature is an insect, border color is dashed orange
-            */
+            // Create a function called changeBorderColor
+            function changeBorderColor(type, color) {
+            // Select all elements with the class 'creature'
+            const creatures = document.querySelectorAll(".creature");
+            // Loop through the NodeList and change border color based on the home
+            creatures.forEach((creature) => {
+                if (creature.getAttribute("data-type") === type) {
+                    creature.style.borderColor = color;
+                }
+            });
+        }
+    
+        // Call the changeBorderColor function with desired arguments
+        changeBorderColor('animal', 'LightPink'); changeBorderColor('insect', 'MediumTurquoise');
             alert("showType()");
-        }//end showType()
-
+        }// end showType()
+        
+        // Create a function called clearAll
         function clearAll()
         {
-            /*
-                loop through all creatures
-                
-                clear border back to 1px solid black
-                clear background color to white
-                
-            */
-            alert("clearAll()");
-        }//end clearAll()
+            // get all the elements with the name creature
+            var creatures = document.getElementsByClassName('creature');
+
+            // loop through all creatures
+            for (var i = 0; i < creatures.length; i++) {
+                // Clear border back to 1px solid black
+                creatures[i].style.border = '1px solid black';
+                // Clear background color to white
+                creatures[i].style.backgroundColor = 'white';
+                    alert("clearAll()");
+            }// end clearAll()
+        }   
 
     </script>    
     </body>
