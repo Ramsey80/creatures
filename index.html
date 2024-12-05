@@ -125,13 +125,13 @@
             // Loop through the NodeList and change border color based on the home
             creatures.forEach((creature) => {
                 if (creature.getAttribute("data-type") == type) {
-                    creature.style.borderColor = color;
+                    creature.style.border = color;
+
                 }
             });
         }
-    
         // Call the changeBorderColor function with desired arguments
-        changeBorderColor('animal', 'red'); changeBorderColor('insect', 'orange');
+        changeBorderColor('animal', 'solid red'); changeBorderColor('insect', 'dashed orange'); 
 
         }// end showType()
         
